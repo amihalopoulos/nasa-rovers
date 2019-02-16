@@ -9,7 +9,7 @@ function Image(props){
 
   return (
     <div className="image-wrapper">
-      image
+      <img src={props.src} />
     </div>
   )
 }

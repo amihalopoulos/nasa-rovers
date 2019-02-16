@@ -6,31 +6,28 @@ import ImageCollection from './image-collection'
 
 function Container(){
   // const [data, loading] = useFetch('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=YQv888J9gVeBN6TPQJqZ78ox127KhPQriWjNbYKa')
-  const [rovers, roverLoading] = useFetch('https://api.nasa.gov/mars-photos/api/v1/rovers?api_key=YQv888J9gVeBN6TPQJqZ78ox127KhPQriWjNbYKa')
-  useEffect(() => {
+  // const [rovers, setRovers] = useState([])
+  const [rovers, fetchingRovers] = useFetch('https://api.nasa.gov/mars-photos/api/v1/rovers?api_key=YQv888J9gVeBN6TPQJqZ78ox127KhPQriWjNbYKa')
+  const [selectedRover, setSelectedRover] = useState(false)
+  const [filter, setFilter] = useState(false)
 
-  })
+  function handleRoverSelect(rover){
+    setSelectedRover(rover)
+  }
 
   return (
     <div className="container">
     {
-      !roverLoading && (
+      fetchingRovers ? (
+        "Loading..."
+      ) : (
         <React.Fragment>
-          <Navigation items={rovers.rovers} />
-          <Filter />
-          <ImageCollection />
+          <Navigation select={handleRoverSelect} selected={selectedRover ? selectedRover : rovers.rovers[0]} items={rovers.rovers} />
+          <Filter filter={filter} setFilter={setFilter} />
+          <ImageCollection rover={selectedRover ? selectedRover : rovers.rovers[0]}  />
         </React.Fragment>
       )
     }
-
-
-      <div>
-       {/* {loading ? (
-          "Loading..."
-        ) : ( 
-          "retrieved"
-        )} */}
-      </div> 
     </div>
   )
 }

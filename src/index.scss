@@ -1,6 +1,15 @@
 .navigation-wrapper{
   display: flex;
-  div{
+  .nav-item{
+    cursor: pointer;
+    color: #357DED;;
     padding: 10px;
+    border-radius: 4px;
+    min-width: 100px;
+    text-align: center;
+    &.selected, &:hover{
+      font-weight: 800;
+      background-color: #EDEFF2;
+    }
   }
 }
