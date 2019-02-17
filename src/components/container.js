@@ -1,7 +1,6 @@
 import React, { Component, useState, useEffect } from "react";
 import useFetch from './hooks';
 import Navigation from './navigation'
-import Filter from './filter'
 import ImageCollection from './image-collection'
 import DatePicker from "react-datepicker";
 
@@ -21,13 +20,10 @@ function Container(){
   }
 
   function formatDate(date){
-    console.log(date)
     return date.toISOString().substr(0,10)
   }
 
   function selectDate(newDate){
-    console.log('hello this is selecting the date')
-    console.log(formatDate(newDate))
     setDate(newDate)
   }
 
@@ -39,7 +35,7 @@ function Container(){
       ) : (
         <React.Fragment>
           <Navigation select={handleRoverSelect} selected={selectedRover ? selectedRover : rovers.rovers[0]} items={rovers.rovers} />
-          Filter by Date: <DatePicker selected={date} onSelect={selectDate} />
+          <div className="filter">Filter by Date: <DatePicker selected={date} onSelect={selectDate} /></div>
           <ImageCollection rover={selectedRover ? selectedRover : rovers.rovers[0] } date={formatDate(date)} />
         </React.Fragment>
       )
