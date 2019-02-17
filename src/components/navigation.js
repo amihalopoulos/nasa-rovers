@@ -5,7 +5,7 @@ import NavItem from './nav-item';
 function Navigation(props){
 
   useEffect(() => {
-console.log(props)
+console.log('navigation effect')
   })
 
   return (

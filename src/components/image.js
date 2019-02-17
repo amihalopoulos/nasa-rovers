@@ -10,6 +10,10 @@ function Image(props){
   return (
     <div className="image-wrapper">
       <img src={props.src} />
+      <div className="image-overlay">
+        <div>earth date: {props.earthDate}</div>
+        <div>sol: {props.sol}</div>
+      </div>
     </div>
   )
 }

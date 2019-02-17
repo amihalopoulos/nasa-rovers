@@ -13,3 +13,20 @@
     }
   }
 }
+
+.image-collection-wrapper{
+  .image-collection{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .image-wrapper{
+      width: 30%;
+      max-width: 30%;
+      height: auto;
+      img{
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
