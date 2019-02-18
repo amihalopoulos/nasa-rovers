@@ -9,7 +9,6 @@ function useFetch(url){
 
   async function fetchUrl(){
     const response = await axios.get(url, config);
-    console.log(response.data)
 
     setData(response.data);
     setLoading(false);
