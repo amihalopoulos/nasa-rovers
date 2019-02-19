@@ -3,12 +3,13 @@ import Image from './image';
 import axios from 'axios';
 import localForage from 'localForage';
 import { Context } from "../store";
+import moment from 'moment';
 
 function ImageCollection(){
   const { store, dispatch } = useContext(Context)
   
   function formatDate(date){
-    return date.toISOString().substr(0,10)
+    return moment(date).format('YYYY-MM-DD')
   }
 
   async function fetchImages(){
